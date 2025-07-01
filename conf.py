@@ -105,7 +105,7 @@ NAVIGATION_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "spacelab"
+THEME = "mist-modern"
 
 # Below this point, everything is optional
 

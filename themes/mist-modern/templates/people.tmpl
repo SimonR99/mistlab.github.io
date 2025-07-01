@@ -1,0 +1,90 @@
+<!-- People Section -->
+    <div class="people-container">
+        <div class="row people-grid">
+            % for person in people:
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                <div class="people-card">
+                    % if person.get('Image'):
+                    <div class="people-image">
+                        <img src="${person['Image']}" alt="${person['Name']}" />
+                    </div>
+                    % endif
+                    
+                    <div class="people-content">
+                        <h4 class="people-name">${person['Name']}</h4>
+                        
+                        % if person.get('Occupation'):
+                        <div class="people-position">${person['Occupation']}</div>
+                        % endif
+                        
+                        % if person.get('Tagline'):
+                        <div class="people-tagline-container">
+                            <p class="people-tagline">${person['Tagline']}</p>
+                        </div>
+                        % else:
+                        <div class="people-tagline-container">
+                            <p class="people-tagline">&nbsp;</p>
+                        </div>
+                        % endif
+                        
+                        <!-- Social Links -->
+                        % if any(social in person for social in ['Facebook', 'Linkedin', 'Twitter', 'GPlus']):
+                        <div class="people-social">
+                            % if 'Facebook' in person:
+                            <a href="${person['Facebook']}" target="_blank" class="social-link facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            % endif
+                            % if 'Linkedin' in person:
+                            <a href="${person['Linkedin']}" target="_blank" class="social-link linkedin">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            % endif
+                            % if 'Twitter' in person:
+                            <a href="${person['Twitter']}" target="_blank" class="social-link twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            % endif
+                            % if 'GPlus' in person:
+                            <a href="${person['GPlus']}" target="_blank" class="social-link google-plus">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            % endif
+                        </div>
+                        % endif
+                    </div>
+                </div>
+            </div>
+            % endfor
+        </div>
+    </div>
+
+    <!-- Alumni Section -->
+    % if alumni:
+    <div class="alumni-section mt-5">
+        <h3 class="section-title">Former members</h3>
+        <div class="alumni-list">
+            <ul class="list-styled alumni-list-items">
+                <!-- Hardcoded former members -->
+                <li><a href="http://ca.linkedin.com/pub/oana-neagu/89/958/77a">Oana Neagu</a> (Intern)</li>
+                <li><a href="http://fr.linkedin.com/pub/florian-fougeanet/5b/915/927/en">Florian Fougeanet</a> (Intern)</li>
+                <li><a href="http://fr.linkedin.com/pub/deboleena-roy/16/253/598">Deboleena Roy</a> (MITACS Globalink Intern)</li>
+                <li><a href="http://fr.linkedin.com/pub/ben-ali-ismail/5b/483/128/en">Ismail Ben Ali Ouriaghli</a> (UPIR Intern)</li>
+                <li><a href="http://nl.linkedin.com/in/robertapiscitelli">Roberta Piscitelli</a> (PBEEE Visiting Scholar)</li>
+                <li><a href="http://fr.linkedin.com/pub/mikael-capelle/5b/880/131/en">Mikael Capelle</a> (Intern)</li>
+                
+                <!-- Dynamic alumni -->
+                % for alumnus in alumni:
+                    <li>
+                        % if 'Linkedin' in alumnus:
+                            <a href="${alumnus['Linkedin']}">${alumnus['Name']}</a>
+                        % else:
+                            <a href="${alumnus['href']}">${alumnus['Name']}</a>
+                        % endif
+                        (${alumnus['Occupation']})
+                    </li>
+                % endfor
+            </ul>
+        </div>
+    </div>
+    % endif 

@@ -1,0 +1,52 @@
+## -*- coding: utf-8 -*-
+<%namespace name="helper" file="post_helper.tmpl"/>
+<%namespace name="pheader" file="post_header.tmpl"/>
+<%namespace name="comments" file="comments_helper.tmpl"/>
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+    <meta name="author" content="${post.author()|h}">
+    %if post.prev_post:
+        <link rel="prev" href="${post.prev_post.permalink()}" title="${post.prev_post.title()|h}" type="text/html">
+    %endif
+    %if post.next_post:
+        <link rel="next" href="${post.next_post.permalink()}" title="${post.next_post.title()|h}" type="text/html">
+    %endif
+    %if post.is_draft:
+        <meta name="robots" content="noindex">
+    %endif
+    ${helper.open_graph_metadata(post)}
+    ${helper.twitter_card_information(post)}
+    ${helper.meta_translations(post)}
+</%block>
+
+<%block name="content">
+    <!-- Enhanced About Header with Space Theme -->
+    <div class="mist-header-modern">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="mist-title-modern">
+                        <i class="fa fa-rocket"></i>
+                        It's Nice To Meet You!
+                    </h1>
+                    <p class="mist-subtitle-modern">
+                        Welcome to MIST Lab - Where space technology meets innovation
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main About Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mist-content-modern">
+                    ${post.text()}
+                </div>
+            </div>
+        </div>
+    </div>
+</%block> 

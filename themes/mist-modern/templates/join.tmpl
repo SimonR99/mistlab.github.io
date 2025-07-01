@@ -1,0 +1,34 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+</%block>
+
+<%block name="content">
+    <!-- Enhanced Join Header with Space Theme -->
+    <div class="mist-header-modern">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="mist-title-modern">
+                        <i class="fa fa-rocket"></i>
+                        Join MIST Lab
+                    </h1>
+                    <p class="mist-subtitle-modern">
+                        Ready to launch your research journey? Discover how you can join our mission!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mist-content-modern">
+                    ${post.text()}
+                </div>
+            </div>
+        </div>
+    </div>
+</%block> 

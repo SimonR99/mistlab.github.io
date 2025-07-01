@@ -1,0 +1,88 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+</%block>
+
+<%block name="content">
+    <!-- Projects Header -->
+    <div class="mist-header-modern">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="mist-title-modern">
+                        <i class="fa fa-rocket"></i> MIST Lab Projects
+                    </h1>
+                    <p class="mist-subtitle-modern">
+                        Innovative research initiatives advancing space technology, autonomous systems, and computer engineering
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <nav id="projects-toc" class="modern-card projects-toc-sidebar"></nav>
+            </div>
+            <!-- Main Content -->
+            <div class="col-lg-9 col-12">
+                <div class="mist-content-modern">
+                    ${post.text()}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Dynamic Projects Table of Contents
+    document.addEventListener('DOMContentLoaded', function() {
+        function buildToc(toc, content) {
+            if (!toc || !content) return;
+            const headings = content.querySelectorAll('h2');
+            if (!headings.length) return;
+            let tocHtml = '<h4><i class="fa fa-list"></i> Quick Navigation</h4><ul class="toc-list">';
+            headings.forEach(function(h, idx) {
+                if (!h.id) {
+                    h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                }
+                const link = '<a href="#' + h.id + '" class="toc-link">' + h.textContent + '</a>';
+                tocHtml += '<li class="toc-item toc-h2">' + link + '</li>';
+            });
+            tocHtml += '</ul>';
+            toc.innerHTML = tocHtml;
+            toc.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById(this.getAttribute('href').substring(1));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.getBoundingClientRect().top + window.scrollY - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            function onScroll() {
+                let currentId = null;
+                headings.forEach(h => {
+                    const rect = h.getBoundingClientRect();
+                    if (rect.top < 120) currentId = h.id;
+                });
+                toc.querySelectorAll('a').forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+                });
+            }
+            document.addEventListener('scroll', onScroll, {passive:true});
+            onScroll();
+        }
+        // Desktop sidebar
+        buildToc(document.getElementById('projects-toc'), document.querySelector('.mist-content-modern'));
+        // Mobile ToC
+        buildToc(document.getElementById('projects-toc-mobile'), document.querySelector('.mist-content-modern'));
+    });
+    </script>
+</%block> 

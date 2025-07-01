@@ -10,5 +10,9 @@
 -->
 
 I would like to thank Altera for the generous donation of their
-flagship Stratix V board. It will be used for radiation and fault
+flagship Stratix V board.
+
+<!-- TEASER_END -->
+
+It will be used for radiation and fault
 tolerance studies.

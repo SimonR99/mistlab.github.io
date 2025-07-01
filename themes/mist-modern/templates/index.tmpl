@@ -1,0 +1,58 @@
+## -*- coding: utf-8 -*-
+<%namespace name="helper" file="base_helper.tmpl"/>
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+</%block>
+
+<%block name="content">
+    <!-- Blog Header -->
+    <div class="mist-header-modern">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="mist-title-modern">
+                        <i class="fa fa-rss"></i> MIST Lab Blog
+                    </h1>
+                    <p class="mist-subtitle-modern">
+                        Latest updates from our research, missions, and space technology developments
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Posts -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                %if posts:
+                    <div class="blog-posts-grid">
+                        %for post in posts:
+                            <div class="modern-card blog-post-card" style="margin-bottom: 2rem;">
+                                <div class="blog-card-content">
+                                    <h2 class="blog-card-title"><a href="${post.permalink()}">${post.title()}</a></h2>
+                                    %if post.description():
+                                        <p class="blog-card-description">${post.description()}</p>
+                                    %endif
+                                    <p class="blog-card-teaser">${post.text(teaser_only=True, show_read_more_link=False)}</p>
+                                    <a href="${post.permalink()}" class="btn btn-primary btn-read-more">Read More</a>
+                                </div>
+                            </div>
+                        %endfor
+                    </div>
+                    
+                    <!-- Pagination will be added later if needed -->
+                %else:
+                    <div class="no-posts-message">
+                        <div class="no-posts-card">
+                            <i class="fa fa-info-circle fa-3x"></i>
+                            <h3>No blog posts found.</h3>
+                        </div>
+                    </div>
+                %endif
+            </div>
+        </div>
+    </div>
+</%block> 

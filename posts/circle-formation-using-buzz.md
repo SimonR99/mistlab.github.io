@@ -16,6 +16,8 @@ The result of this port is a "glue" library that provides a set of functions for
 we have released the (still unfinished!) code on [GitHub](https://github.com/MISTLab/BuzzKH4). The total integration work was only a couple of days'
 work, a testament to the portability of Buzz.
 
+<!-- TEASER_END -->
+
 So we can now proudly show an example of Buzz at work: we programmed the Kheperas with a simple algorithm that, without computation,
 leads to circle formation. The algorithm itself will be the subject of a future publication. What the video shows is that the robots
 can be successfully controlled and their sensors used to perform swarming tasks:

@@ -1,0 +1,97 @@
+## -*- coding: utf-8 -*-
+<%namespace name="helper" file="base_helper.tmpl"/>
+<%namespace name="pheader" file="post_header.tmpl"/>
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+    <meta name="author" content="${post.author()|h}">
+    %if post.prev_post:
+        <link rel="prev" href="${post.prev_post.permalink()}" title="${post.prev_post.title()|h}" type="text/html">
+    %endif
+    %if post.next_post:
+        <link rel="next" href="${post.next_post.permalink()}" title="${post.next_post.title()|h}" type="text/html">
+    %endif
+    %if post.is_draft:
+        <meta name="robots" content="noindex">
+    %endif
+    <!-- Social metadata can be added here if needed -->
+</%block>
+
+<%block name="content">
+    <!-- Blog Post Header -->
+    %if post.title():
+        <div class="mist-header-modern">
+            <div class="container">
+                <h1 class="mist-title-modern">${post.title()}</h1>
+                %if post.description():
+                    <p class="mist-subtitle-modern">${post.description()}</p>
+                %endif
+            </div>
+        </div>
+    %endif
+
+    <!-- Blog Post Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mist-content-modern">
+                    ${post.text()}
+                </div>
+                
+                <!-- Navigation between posts -->
+                %if post.prev_post or post.next_post:
+                    <div class="blog-post-navigation">
+                        <div class="row">
+                            %if post.prev_post:
+                                <div class="col-md-6">
+                                    <div class="nav-post nav-post-prev">
+                                        <div class="nav-post-direction">
+                                            <i class="fa fa-arrow-left"></i> Previous Post
+                                        </div>
+                                        <a href="${post.prev_post.permalink()}" class="nav-post-title">
+                                            ${post.prev_post.title()|h}
+                                        </a>
+                                    </div>
+                                </div>
+                            %endif
+                            %if post.next_post:
+                                <div class="col-md-6">
+                                    <div class="nav-post nav-post-next">
+                                        <div class="nav-post-direction">
+                                            Next Post <i class="fa fa-arrow-right"></i>
+                                        </div>
+                                        <a href="${post.next_post.permalink()}" class="nav-post-title">
+                                            ${post.next_post.title()|h}
+                                        </a>
+                                    </div>
+                                </div>
+                            %endif
+                        </div>
+                    </div>
+                %endif
+                
+                <!-- Comments section can be added here if needed -->
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="blog-sidebar">
+                    <!-- Categories/Tags -->
+                    %if post.tags:
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">
+                                <i class="fa fa-tags"></i> Tags
+                            </h4>
+                            <div class="tag-cloud">
+                                %for tag in post.tags:
+                                    <a href="${_link('tag', tag)}" class="tag-item">${tag|h}</a>
+                                %endfor
+                            </div>
+                        </div>
+                    %endif
+                </div>
+            </div>
+        </div>
+    </div>
+</%block> 

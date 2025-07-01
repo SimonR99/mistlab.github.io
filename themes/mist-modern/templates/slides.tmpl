@@ -1,0 +1,307 @@
+<%block name="belowmenu">
+<!-- Enhanced MIST Modern Carousel -->
+<div id="${carousel_id}" class="mist-carousel carousel slide" data-ride="carousel" data-interval="6000">
+  <!-- Carousel Indicators -->
+  <ol class="carousel-indicators">
+    % for i in range(len(slides_content)):
+        % if i == 0:
+            <li data-target="#${carousel_id}" data-slide-to="${i}" class="active"></li>
+        % else:
+            <li data-target="#${carousel_id}" data-slide-to="${i}"></li>
+        % endif
+    % endfor
+  </ol>
+
+  <!-- Carousel Wrapper -->
+  <div class="carousel-inner">
+        % for i, line in enumerate(slides_content):
+            % if i == 0:
+                <div class="item active">
+            % else:
+                <div class="item">
+            % endif
+
+            % if len(line.split(';')) == 4:
+            <%
+                parts = line.split(';')
+                image_path = parts[0]
+                title = parts[1]
+                description = parts[2]
+                link_url = parts[3]
+            %>
+            
+            <!-- Image with overlay -->
+            <div class="carousel-image-container">
+                <img src="${image_path}" alt="${title}" class="carousel-image"/>
+                <div class="carousel-overlay"></div>
+            </div>
+            
+            <!-- Content overlay -->
+            <div class="container-fluid">
+                <div class="carousel-caption-enhanced">
+                    <div class="carousel-content">
+                        <h1 class="carousel-title">${title}</h1>
+                        <p class="carousel-description">${description}</p>
+                        <div class="carousel-actions">
+                            <a class="btn btn-primary-mist btn-lg" href="${link_url}">
+                                <span>Explore More</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            % endif
+        </div>
+        % endfor
+  </div>
+  
+  <!-- Enhanced Controls -->
+  <a class="left carousel-control-enhanced" href="#${carousel_id}" role="button" data-slide="prev">
+    <div class="control-wrapper">
+        <i class="fa fa-chevron-left"></i>
+        <span class="sr-only">Previous</span>
+    </div>
+  </a>
+  <a class="right carousel-control-enhanced" href="#${carousel_id}" role="button" data-slide="next">
+    <div class="control-wrapper">
+        <i class="fa fa-chevron-right"></i>
+        <span class="sr-only">Next</span>
+    </div>
+  </a>
+</div>
+
+<!-- Add custom carousel styles -->
+<style>
+.mist-carousel {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.mist-carousel .item {
+    height: 70vh;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: all 0.3s ease;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        var(--space-navy) 0%,
+        rgba(15, 23, 42, 0.8) 30%,
+        rgba(15, 23, 42, 0.6) 70%,
+        rgba(14, 116, 144, 0.3) 100%
+    );
+}
+
+.carousel-caption-enhanced {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.carousel-content {
+    animation: slideInUp 0.8s ease-out;
+}
+
+.carousel-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: white;
+    line-height: 1.2;
+}
+
+.carousel-description {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary-mist {
+    background: linear-gradient(135deg, var(--space-teal), var(--accent-green));
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary-mist:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(8, 145, 178, 0.4);
+    background: linear-gradient(135deg, var(--space-teal-light), var(--accent-green-light));
+}
+
+.btn-primary-mist span {
+    margin-right: 10px;
+}
+
+.carousel-indicators {
+    bottom: 30px;
+    z-index: 15;
+}
+
+.carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators li.active {
+    background-color: var(--space-teal);
+    border-color: white;
+    transform: scale(1.2);
+}
+
+.carousel-control-enhanced {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.carousel-control-enhanced:hover {
+    background: rgba(8, 145, 178, 0.8);
+    border-color: var(--space-teal);
+    transform: translateY(-50%) scale(1.1);
+    text-decoration: none;
+}
+
+.carousel-control-enhanced.left {
+    left: 30px;
+}
+
+.carousel-control-enhanced.right {
+    right: 30px;
+}
+
+.carousel-control-enhanced i {
+    color: white;
+    font-size: 20px;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mist-carousel {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .mist-carousel .item {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .carousel-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .carousel-description {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn-primary-mist {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .carousel-control-enhanced {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-control-enhanced.left {
+        left: 15px;
+    }
+    
+    .carousel-control-enhanced.right {
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-title {
+        font-size: 2rem;
+    }
+    
+    .carousel-description {
+        font-size: 1rem;
+    }
+}
+</style>
+</%block> 

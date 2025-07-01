@@ -5,6 +5,7 @@
 .. link:
 .. description: 
 .. type: text
+.. template: about.tmpl
 
 =====================
 It's Nice To meet you
@@ -29,7 +30,7 @@ It's Nice To meet you
    towards *space technologies*. The lab is located in the Lassonde
    Building, at `Polytechnique Montreal <http://www.polymtl.ca>`_,
    situated on the campus of the University of Montreal. The lab is
-   just a few metro stops away from Montreal’s lively downtown area.
+   just a few metro stops away from Montreal's lively downtown area.
 
 .. raw:: html
    

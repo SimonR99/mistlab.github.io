@@ -4,25 +4,12 @@
 .. date: 2014-06-10 15:57:26 UTC-04:00
 .. tags: 
 .. link: 
-.. description: 
+.. description: Research projects and initiatives at MIST Lab
 .. type: text
+.. template: projects.tmpl
 -->
 
-<div markdown="1" class="pull-right panel panel-primary">
 
-<div class="panel-heading">
-
-<h3 class="panel-title">Contents</h3>
-
-</div>
-
-<div markdown="1" class="panel-body">  
-
-[TOC]
-
-</div>
-
-</div>
 
 # Current
 
@@ -61,8 +48,8 @@ code and tools can be downloaded from [Github](http://github.com/mistlab/buzz).
 
 ### Sponsors
 
-<img src="/images/pleiades.png" alt="Pleiades" height="70px" />
-<img src="/images/NSERC.jpg" alt="NSERC" height="100px" />
+<img src="/images/pleiades.png" class="sponsor-image" alt="Pleiades" height="70px" />
+<img src="/images/NSERC.jpg" class="sponsor-image" alt="NSERC" height="100px" />
 
 
 ### Media coverage
@@ -106,8 +93,8 @@ users and decision makers.
 
 ### Sponsors
 
-<img src="/images/humanitas.png" alt="Humanitas" height="100px" />
-<img src="/images/NSERC.jpg" alt="NSERC" height="100px" />
+<img src="/images/humanitas.png" class="sponsor-image" alt="Humanitas" height="100px" />
+<img src="/images/NSERC.jpg" class="sponsor-image" alt="NSERC" height="100px" />
 
 ----------
 
@@ -163,9 +150,9 @@ time, fostering simpler and cheaper space exploration.
 
 ### Sponsors
 
-<img src="/images/NSERC.jpg" alt="NSERC" height="100px" />
-<img src="/images/FRQNT.png" alt="FRQNT" height="70px" />
-<img src="/images/logos_resmiq.png" alt="ReSMiQ" height="70px" />
+<img src="/images/NSERC.jpg" class="sponsor-image" alt="NSERC" height="100px" />
+<img src="/images/FRQNT.png" class="sponsor-image" alt="FRQNT" height="70px" />
+<img src="/images/logos_resmiq.png" class="sponsor-image" alt="ReSMiQ" height="70px" />
 
 ----------
 
@@ -213,8 +200,8 @@ and certification of real-time software are enormous.
 ### Sponsors
 
 <!-- Images -->
-<img src="/images/NSERC.jpg" alt="NSERC" height="100px" />
-<img src="/images/poly.jpg" alt="POLY" height="70px" />
+<img src="/images/NSERC.jpg" class="sponsor-image" alt="NSERC" height="100px" />
+<img src="/images/poly.jpg" class="sponsor-image" alt="POLY" height="70px" />
 
 ----------
 
@@ -255,8 +242,8 @@ to the aerospace industry of Canada and Quebec.
 ### Sponsors
 
 <!-- Images -->
-<img src="/images/NSERC.jpg" alt="NSERC" height="100px" />
-<img src="/images/CAE_Inc_Logo.png" alt="CAE" height="70px" />
+<img src="/images/NSERC.jpg" class="sponsor-image" alt="NSERC" height="100px" />
+<img src="/images/CAE_Inc_Logo.png" class="sponsor-image" alt="CAE" height="70px" />
 
 
 --------
@@ -297,7 +284,7 @@ library is written in C and runs on GNU/Linux systems.
 * [Sami Riahi](/people/sriahi/) (MSc)
 
 <!-- Images -->
-<img src="/images/NSERC.jpg" alt="NSERC" height="100px" />
+<img src="/images/NSERC.jpg" class="sponsor-image" alt="NSERC" height="100px" />
 
 ----------
 
@@ -351,9 +338,9 @@ fault-injector
 ### Sponsors
 
 <!-- ESA logo -->
-<img src="/images/mitacs_logo.png" alt="MITACS" height="70px" />
-<img src="/images/altera.jpg" alt="ALTERA" height="70px" />
-<img src="/images/poly.jpg" alt="POLY" height="70px" />
+<img src="/images/mitacs_logo.png" class="sponsor-image" alt="MITACS" height="70px" />
+<img src="/images/altera.jpg" class="sponsor-image" alt="ALTERA" height="70px" />
+<img src="/images/poly.jpg" class="sponsor-image" alt="POLY" height="70px" />
 
 ----------
 
@@ -397,7 +384,7 @@ simulators. With respect to standard ADL, having the input directly
 from Python eliminates the need for having an ad-hoc front-end thus
 consistently reducing the development effort.  
 
-<img src="/images/esa.png" alt="ESA" height="70px" />
+<img src="/images/esa.png" class="sponsor-image" alt="ESA" height="70px" />
 
 ----------
 
@@ -423,7 +410,7 @@ SystemC components must be created; they allow interoperability
 between C++ and Python languages. These wrappers are automatically
 created using Py++ tool.  
 
-<img src="/images/esa.png" alt="ESA" height="70px" />
+<img src="/images/esa.png" class="sponsor-image" alt="ESA" height="70px" />
 
 ----------
 
@@ -434,5 +421,5 @@ on smart behavioral simulation. Our analysis does not require a
 testbench and can perform full, exhaustive coverage within less than
 an hour for typical designs.
 
-<img src="/images/esa.png" alt="ESA" height="70px" />
+<img src="/images/esa.png" class="sponsor-image" alt="ESA" height="70px" />
 

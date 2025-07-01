@@ -1,0 +1,195 @@
+## -*- coding: utf-8 -*-
+<%namespace name="helper" file="post_helper.tmpl"/>
+<%namespace name="pheader" file="post_header.tmpl"/>
+<%namespace name="comments" file="comments_helper.tmpl"/>
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+    <meta name="author" content="${post.author()|h}">
+    %if post.prev_post:
+        <link rel="prev" href="${post.prev_post.permalink()}" title="${post.prev_post.title()|h}" type="text/html">
+    %endif
+    %if post.next_post:
+        <link rel="next" href="${post.next_post.permalink()}" title="${post.next_post.title()|h}" type="text/html">
+    %endif
+    %if post.is_draft:
+        <meta name="robots" content="noindex">
+    %endif
+    ${helper.open_graph_metadata(post)}
+    ${helper.twitter_card_information(post)}
+    ${helper.meta_translations(post)}
+</%block>
+
+<%block name="content">
+    <!-- Enhanced Page Header -->
+    <div class="page-header-modern">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-title-modern">${post.title()}</h1>
+                    %if post.description():
+                        <p class="page-subtitle-modern">${post.description()}</p>
+                    %endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-modern">
+                    ${post.text()}
+                </div>
+                
+                %if not post.meta('nocomments') and site_has_comments:
+                    <section class="comments-section">
+                        <h3>Comments</h3>
+                        ${comments.comment_form(post.permalink(absolute=True), post.title(), post.base_path)}
+                    </section>
+                %endif
+            </div>
+        </div>
+    </div>
+</%block>
+
+<!-- Modern Page Styles -->
+<style>
+.page-header-modern {
+    background: linear-gradient(135deg, var(--space-navy) 0%, var(--space-blue) 100%);
+    color: white;
+    padding: 80px 0 60px;
+    margin-bottom: 40px;
+}
+
+.page-title-modern {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.page-subtitle-modern {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.content-modern {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.content-modern h1,
+.content-modern h2,
+.content-modern h3,
+.content-modern h4,
+.content-modern h5,
+.content-modern h6 {
+    color: var(--space-navy);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.content-modern h1 {
+    color: var(--space-teal);
+    border-bottom: 3px solid var(--accent-green);
+    padding-bottom: 0.5rem;
+}
+
+.content-modern h2 {
+    color: var(--space-blue);
+    border-left: 4px solid var(--space-teal);
+    padding-left: 1rem;
+}
+
+.content-modern p {
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: #4a5568;
+}
+
+.content-modern code {
+    background: var(--space-navy);
+    color: var(--accent-green);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content-modern pre {
+    background: var(--space-navy);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--space-teal);
+    overflow-x: auto;
+}
+
+.content-modern blockquote {
+    border-left: 4px solid var(--accent-green);
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: var(--space-blue);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.content-modern img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    margin: 20px 0;
+}
+
+.comments-section {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+.comments-section h3 {
+    color: var(--space-navy);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 768px) {
+    .page-header-modern {
+        padding: 60px 0 40px;
+    }
+    
+    .page-title-modern {
+        font-size: 2.5rem;
+    }
+    
+    .content-modern {
+        padding: 25px;
+        margin: 0 10px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title-modern {
+        font-size: 2rem;
+    }
+    
+    .content-modern {
+        padding: 20px;
+        margin: 0 5px 20px;
+    }
+}
+</style> 
