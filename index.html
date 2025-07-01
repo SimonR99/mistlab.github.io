@@ -1,212 +1,528 @@
 <!DOCTYPE html>
-<html prefix="fb: http://ogp.me/ns/fb# " lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Welcome to the MIST Lab">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIST Lab | MIST Lab</title>
 <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-<link rel="canonical" href="http://mistlab.ca/">
-<meta property="fb:app_id" content="">
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-    },
-    displayAlign: 'left', // Change this to 'center' to center equations.
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script><!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Load modern styles --><link href="assets/css/mist-modern.css" rel="stylesheet">
+<!-- Preload hero image to prevent flash --><link rel="preload" href="images/milky-cropped.jpg" as="image">
+<link rel="preload" href="images/ahs2015Dragon_and_robotic.png" as="image">
+<link rel="preload" href="images/virtex5-banner-blur.jpg" as="image">
+<link rel="preload" href="images/iss-banner-blur.jpg" as="image">
 </head>
 <body>
-
-  <!-- Menubar -->
-  <nav class="navbar navbar-default navbar-fixed-top page-scroll" role="navigation"><div class="container">
-      <div class="navbar-header">
-	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-	</button>
-	<!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-	<a href="."><img src="images/mistlogo.svg" alt="MIST Lab" id="logo" height="50"></a>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top page-scroll" role="navigation" id="main-navbar"><div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="."><img src="images/mistlogo.svg" alt="MIST Lab" id="logo" height="50"></a>
+        </div>
+        
+        <div class="collapse navbar-collapse navbar-ex1-collapse page-scroll">
+          <ul class="nav navbar-nav navbar-right">
+<li class="active"><a href=".">Home</a></li>
+            <li><a href="about/">About</a></li>
+            <li><a href="about/#people">People</a></li>
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="projects/">Projects</a></li>
+            <li><a href="publications/">Publications</a></li>
+            <li><a href="join/">Join MIST</a></li>
+          </ul>
+</div>
+      </div>
+    </nav><!-- MIST Space Hero Banner --><section class="mist-hero-banner"><!-- Background Image --><div class="hero-image-container">
+        <img src="images/milky-cropped.jpg" alt="Making Innovative Space Technology" class="hero-image"><div class="hero-overlay"></div>
       </div>
       
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse page-scroll">
-	<ul class="nav navbar-nav navbar-right">
-<li class="active">
-<a href=".">Home</a>
-                </li>
-<li>
-<a href="about/">About</a>
-                </li>
-<li>
-<a href="about/#people">People</a>
-                </li>
-<li>
-<a href="blog/">Blog</a>
-                </li>
-<li>
-<a href="projects/">Projects</a>
-                </li>
-<li>
-<a href="publications/">Publications</a>
-                </li>
-<li>
-<a href="join/">Join MIST</a>
-
-	  
-	</li>
-</ul>
-</div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-  </nav>
-
-  
-    <div id="slides_eb535c6ad80f452ea86e0ceb42f520b2" class="carousel slide">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-<li data-target="#slides_eb535c6ad80f452ea86e0ceb42f520b2" data-slide-to="0" class="active">
-            </li>
-<li data-target="#slides_eb535c6ad80f452ea86e0ceb42f520b2" data-slide-to="1">
-            </li>
-<li data-target="#slides_eb535c6ad80f452ea86e0ceb42f520b2" data-slide-to="2">
-  </li>
-</ol>
-<!-- Wrapper for slides --><div class="carousel-inner">
-                <div class="item active">
-
-	    <img src="images/milky-cropped.jpg"><div class="container">
-              <div class="carousel-caption">
-		<h1>Making Innovative Space Technology</h1>
-		<p class="lead">MIST Lab is devoted to the advancement of computer and data handling technology for the space segment</p>
-		<a class="btn btn-lg btn-primary" href="about/">Learn more</a>
-              </div>
-	    </div>
+      <!-- Content Overlay -->
+      <div class="container-fluid">
+        <div class="hero-content-wrapper">
+          <div class="hero-content">
+            <h1 class="hero-title">Making Innovative Space Technology</h1>
+            <p class="hero-description">MIST Lab is devoted to the advancement of computer and data handling technology for the space segment</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary-mist btn-lg" href="about/">
+                <span>Explore More</span>
+                <i class="fa fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
         </div>
-                <div class="item">
-
-	    <img src="images/virtex5-banner-blur.jpg"><div class="container">
-              <div class="carousel-caption">
-		<h1>Novel Computer Architecture</h1>
-		<p class="lead">New probabilistic systems change the way we develop software and hardware for critical applications</p>
-		<a class="btn btn-lg btn-primary" href="projects/">Learn more</a>
-              </div>
-	    </div>
-        </div>
-                <div class="item">
-
-	    <img src="images/iss-banner-blur.jpg"><div class="container">
-              <div class="carousel-caption">
-		<h1>Autonomous Systems</h1>
-		<p class="lead">Self-adaptive systems pave the way for new autonomous and fault-tolerant spacecraft</p>
-		<a class="btn btn-lg btn-primary" href="projects/">Learn more</a>
-              </div>
-	    </div>
-        </div>
-  </div>
-  
-  <!-- Controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="icon-prev"></span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="icon-next"></span>
-  </a>
-</div>
-
-<div class="section">
-
-    <div class="container">
+      </div>
+    </section><!-- Research Areas Section --><section class="section research-areas"><div class="container-modern">
+        <h2 class="section-title">Research Areas</h2>
+        <p class="section-subtitle">
+          Our interdisciplinary research spans multiple domains in space technology and computer engineering
+        </p>
 
         <div class="row">
-            <div class="col-lg-4 col-md-4 text-center">
-                <h3>
-<i class="fa fa-cogs fa-5x"></i><br> Our Projects</h3>
-                <p>Our research covers several areas related to space</p>
-      <a class="btn btn-lg btn-info" href="projects/">Learn more</a>
+          <div class="col-md-4">
+            <div class="modern-card">
+              <div class="research-area-banner">
+                <img src="images/ahs2015Dragon_and_robotic.png" alt="Autonomous Systems" class="research-banner-image"><div class="research-banner-overlay"></div>
+                <h3 class="research-banner-title">
+                  Autonomous Systems
+                </h3>
+              </div>
+              <p>
+                Self-adaptive systems that pave the way for new autonomous and fault-tolerant spacecraft 
+                capable of operating in harsh space environments with minimal human intervention.
+              </p>
             </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <h3>
-<i class="fa fa-group fa-5x"></i><br> Who we are</h3>
-                <p>Meet the team behind the MIST Lab</p>
-      <a class="btn btn-lg btn-warning" href="about/#people">See our team</a>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="modern-card">
+              <div class="research-area-banner">
+                <img src="images/virtex5-banner-blur.jpg" alt="Computer Architecture" class="research-banner-image"><div class="research-banner-overlay"></div>
+                <h3 class="research-banner-title">
+                  Computer Architecture
+                </h3>
+              </div>
+              <p>
+                Novel probabilistic systems that change the way we develop software and hardware 
+                for critical space applications and missions requiring extreme reliability.
+              </p>
             </div>
-            <div class="col-lg-4 col-md-4 text-center">
-                <h3>
-<i class="fa fa-book fa-5x"></i><br> Publications</h3>
-                <p>Browse our most recent articles</p>
-      <a class="btn btn-lg btn-success" href="publications/">Explore</a>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="modern-card">
+              <div class="research-area-banner">
+                <img src="images/iss-banner-blur.jpg" alt="Space Technology" class="research-banner-image"><div class="research-banner-overlay"></div>
+                <h3 class="research-banner-title">
+                  Space Technology
+                </h3>
+              </div>
+              <p>
+                Cutting-edge research in space-qualified computing systems, radiation-tolerant designs, 
+                and innovative space exploration technologies for future missions.
+              </p>
             </div>
+          </div>
         </div>
-        <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.section -->
-    
-
-  
-
-
-  <div class="container">
-  
- 
-
-  </div>
-
-  <div class="container">
-    <hr>
-<div class="row">
-      <div class="col-lg-9">
-	Contents © 2025         <a href="mailto:info@mistlab.ca">MIST Lab</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
-	
       </div>
-      <!-- JavaScript -->
-      
-            <script src="assets/js/all-nocdn.js"></script><div class="col-lg-3">
-                  <ul class="list-unstyled list-inline list-social-icons">
+    </section><!-- Features Section --><section class="section"><div class="container-modern">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <h3 class="feature-title">Our Projects</h3>
+            <p class="feature-description">
+              Our research covers several areas related to space technology, from autonomous systems 
+              to novel computer architectures and space exploration technologies.
+            </p>
+            <a href="projects/" class="btn-modern btn-modern-primary">Explore Projects</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <h3 class="feature-title">Our Team</h3>
+            <p class="feature-description">
+              Meet the brilliant researchers and students behind the MIST Lab's groundbreaking work 
+              in space technology and computer engineering.
+            </p>
+            <a href="about/#people" class="btn-modern btn-modern-primary">Meet the Team</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa fa-book"></i>
+            </div>
+            <h3 class="feature-title">Publications</h3>
+            <p class="feature-description">
+              Browse our latest research papers and discover the cutting-edge work being done 
+              at MIST Lab in space technology and autonomous systems.
+            </p>
+            <a href="publications/" class="btn-modern btn-modern-primary">View Publications</a>
+          </div>
+        </div>
+      </div>
+    </section><!-- Enhanced Footer --><footer class="footer-modern"><div class="container">
+        <div class="row">
+          <div class="col-lg-9">
+            Contents © 2025 <a href="mailto:info@mistlab.ca">MIST Lab</a> - 
+            Powered by <a href="http://getnikola.com" rel="nofollow">Nikola</a>
+          </div>
+          <div class="col-lg-3">
+            <ul class="list-unstyled list-inline list-social-icons">
 <li>Follow us:</li>
-                    <li class="tooltip-social facebook-link">
-<a href="https://www.facebook.com/mistlab.ca" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook-square fa-2x"></i></a>
-                    </li>
-                    <li class="tooltip-social twitter-link">
-<a href="https://twitter.com/MIST_lab" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter-square fa-2x"></i></a>
-                    </li>
-                    <li class="tooltip-social google-plus-link">
-<a href="https://google.com/+MistlabCa" data-toggle="tooltip" data-placement="top" title="Google+"><i class="fa fa-google-plus-square fa-2x"></i></a>
-                    </li>
-                  </ul>
+              <li class="tooltip-social facebook-link">
+                <a href="https://www.facebook.com/mistlab.ca" data-toggle="tooltip" data-placement="top" title="Facebook">
+                  <i class="fa fa-facebook-square fa-2x"></i>
+                </a>
+              </li>
+              <li class="tooltip-social twitter-link">
+                <a href="https://twitter.com/MIST_lab" data-toggle="tooltip" data-placement="top" title="Twitter">
+                  <i class="fa fa-twitter-square fa-2x"></i>
+                </a>
+              </li>
+              <li class="tooltip-social google-plus-link">
+                <a href="https://google.com/+MistlabCa" data-toggle="tooltip" data-placement="top" title="Google+">
+                  <i class="fa fa-google-plus-square fa-2x"></i>
+                </a>
+              </li>
+            </ul>
 </div>
+        </div>
+      </div>
+    </footer><!-- Hero Banner Styles --><style>
+    .mist-hero-banner {
+        position: relative;
+        height: 500px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    
-    </div>
-  </div>
-  <!-- /.container -->
+    .hero-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+    }
 
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.6);
+        display: block;
+    }
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.85) 0%,
+            rgba(15, 23, 42, 0.7) 30%,
+            rgba(15, 23, 42, 0.6) 70%,
+            rgba(14, 116, 144, 0.4) 100%
+        );
+        z-index: 2;
+    }
 
-  ga('create', 'UA-40192557-1', 'mistlab.ca');
-  ga('send', 'pageview');
+    .hero-content-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 10;
+        width: 100%;
+        max-width: 900px;
+        padding: 0 20px;
+    }
 
-</script>
+    .hero-content {
+        animation: fadeInUp 0.8s ease-out;
+    }
 
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        color: white;
+        line-height: 1.2;
+    }
 
+    .hero-description {
+        font-size: 1.3rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        line-height: 1.6;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        margin-top: 0.5rem;
+    }
+
+    .hero-actions .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(14, 116, 144, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-actions .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(14, 116, 144, 0.4);
+    }
+
+    .hero-actions .btn span {
+        margin-right: 10px;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Research Area Banners */
+    .research-area-banner {
+        position: relative;
+        width: 100%;
+        height: 160px;
+        margin: 0 0 20px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+    .research-area-banner:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .research-banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: all 0.3s ease;
+    }
+
+    .research-area-banner:hover .research-banner-image {
+        transform: scale(1.05);
+    }
+
+    .research-banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.5) 0%,
+            rgba(14, 116, 144, 0.4) 50%,
+            rgba(16, 185, 129, 0.3) 100%
+        );
+        transition: all 0.3s ease;
+        z-index: 5;
+    }
+
+    .research-area-banner:hover .research-banner-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.65) 0%,
+            rgba(14, 116, 144, 0.55) 50%,
+            rgba(16, 185, 129, 0.45) 100%
+        );
+    }
+
+    .research-banner-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white !important;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        padding: 0 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 15;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        background: none;
+        border: none;
+    }
+
+    .research-area-banner:hover .research-banner-title {
+        transform: translate(-50%, -50%) scale(1.05);
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary-mist {
+        background: linear-gradient(135deg, var(--space-teal), var(--accent-green));
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .btn-primary-mist:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(8, 145, 178, 0.4);
+        background: linear-gradient(135deg, var(--space-teal-light), var(--accent-green-light));
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn-primary-mist span {
+        margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .mist-hero-banner {
+            height: 400px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-primary-mist {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .mist-hero-banner {
+            height: 350px;
+        }
+        
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-description {
+            font-size: 1rem;
+        }
+        
+        .hero-content-wrapper {
+            padding: 0 15px;
+        }
+        
+        .research-area-banner {
+            height: 120px;
+        }
+        
+        .research-banner-title {
+            font-size: 1.2rem;
+            padding: 0 15px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .research-banner-title {
+            font-size: 1.3rem;
+            padding: 0 15px;
+        }
+    }
+    </style>
+<!-- Enhanced JavaScript --><script>
+      // Enhanced navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('main-navbar');
+        if (navbar) {
+          if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+          }
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Initialize tooltips if jQuery and Bootstrap are available
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof $ !== 'undefined' && $.fn.tooltip) {
+          $('[data-toggle="tooltip"]').tooltip();
+        }
+      });
+
+      // Add fade-in animation to cards when they come into view
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fadeInUp');
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.modern-card, .feature-card').forEach(card => {
+          observer.observe(card);
+        });
+      }
+    </script><!-- Analytics --><script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-40192557-1', 'mistlab.ca');
+      ga('send', 'pageview');
+    </script>
 </body>
 </html>
