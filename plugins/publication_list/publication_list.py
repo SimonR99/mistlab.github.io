@@ -112,7 +112,8 @@ class PublicationList(Directive):
                 labels.add(item[0])
                 all_entries.append(item)
         # Sort the publication entries by year reversed
-        data = sorted(all_entries, key=lambda e: e[1].fields['year'], reverse=True)
+        # Handle missing year fields by using '0000' as fallback for entries without year
+        data = sorted(all_entries, key=lambda e: e[1].fields.get('year', '0000'), reverse=True)
 
         html = '<div class="publication-list">\n'
         cur_year = None
@@ -131,10 +132,11 @@ class PublicationList(Directive):
 
         for label, entry in data:
             # print a year title when year changes
-            if entry.fields['year'] != cur_year:
+            entry_year = entry.fields.get('year', 'Unknown Year')
+            if entry_year != cur_year:
                 if cur_year is not None:  # not first year group
                     html += '</ul>'
-                cur_year = entry.fields['year']
+                cur_year = entry_year
                 html += '<h3>{}</h3>\n<ul>'.format(cur_year)
 
             entry.label = label  # Pass label to the style.
