@@ -14,6 +14,7 @@ Our field mission with the [European Space Agency](https://www.esa.int) for
 the PANGAEA-X experimental campaign was a success! We deployed 6 flying
 robots, controlled with a single tablet by one of the European astronauts. 
 
+<!-- TEASER_END -->
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/europeanastronauttraining/31030614547/in/album-72157700345404104/" title="Drone team"><img src="https://farm5.staticflickr.com/4843/31030614547_7d7a175ecc_b.jpg" width="1024" height="683" alt="Drone team"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 

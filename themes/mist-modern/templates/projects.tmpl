@@ -25,9 +25,9 @@
     <!-- Projects Content -->
     <div class="container">
         <div class="row">
-            <!-- Sidebar Navigation -->
+            <!-- Sidebar Navigation (Desktop only) -->
             <div class="col-lg-3 d-none d-lg-block">
-                <nav id="projects-toc" class="modern-card projects-toc-sidebar"></nav>
+                <nav id="projects-toc" class="projects-toc-sidebar"></nav>
             </div>
             <!-- Main Content -->
             <div class="col-lg-9 col-12">
@@ -37,19 +37,47 @@
             </div>
         </div>
     </div>
+    
     <script>
     // Dynamic Projects Table of Contents
     document.addEventListener('DOMContentLoaded', function() {
         function buildToc(toc, content) {
             if (!toc || !content) return;
+            // Only select H2 headings (project titles), skip H1 and H3 subsections
             const headings = content.querySelectorAll('h2');
-            if (!headings.length) return;
-            let tocHtml = '<h4><i class="fa fa-list"></i> Quick Navigation</h4><ul class="toc-list">';
+            if (!headings.length) {
+                // Hide TOC if no headings found
+                toc.style.display = 'none';
+                return;
+            }
+            
+            let tocHtml = '<h4><i class="fa fa-list"></i> Projects</h4><ul class="toc-list">';
             headings.forEach(function(h, idx) {
                 if (!h.id) {
-                    h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                    h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 50);
                 }
-                const link = '<a href="#' + h.id + '" class="toc-link">' + h.textContent + '</a>';
+                
+                // Extract only project name (remove common prefixes/suffixes)
+                let displayText = h.textContent.trim();
+                
+                // Remove common project prefixes
+                displayText = displayText.replace(/^(Project\s*\d*\s*[:\-]?\s*)/i, '');
+                displayText = displayText.replace(/^(Research\s*\d*\s*[:\-]?\s*)/i, '');
+                displayText = displayText.replace(/^(\d+\.\s*)/i, ''); // Remove numbering like "1. "
+                
+                // Keep only the main project name (first part before " - " or " : ")
+                if (displayText.includes(' - ')) {
+                    displayText = displayText.split(' - ')[0];
+                } else if (displayText.includes(': ')) {
+                    displayText = displayText.split(': ')[0];
+                }
+                
+                // Truncate if too long
+                if (displayText.length > 30) {
+                    displayText = displayText.substring(0, 27) + '...';
+                }
+                
+                const link = '<a href="#' + h.id + '" class="toc-link" title="' + h.textContent.trim() + '">' + displayText + '</a>';
                 tocHtml += '<li class="toc-item toc-h2">' + link + '</li>';
             });
             tocHtml += '</ul>';
@@ -68,21 +96,70 @@
             });
             function onScroll() {
                 let currentId = null;
+                const scrollPos = window.scrollY + 150; // Account for fixed navbar
+                
                 headings.forEach(h => {
                     const rect = h.getBoundingClientRect();
-                    if (rect.top < 120) currentId = h.id;
+                    const elementTop = rect.top + window.scrollY;
+                    if (elementTop <= scrollPos) {
+                        currentId = h.id;
+                    }
                 });
+                
                 toc.querySelectorAll('a').forEach(a => {
-                    a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+                    const isActive = a.getAttribute('href') === '#' + currentId;
+                    a.classList.toggle('active', isActive);
+                    
+                    // Ensure active item is visible in sidebar
+                    if (isActive && toc.classList.contains('projects-toc-sidebar')) {
+                        const tocRect = toc.getBoundingClientRect();
+                        const linkRect = a.getBoundingClientRect();
+                        const tocScrollTop = toc.scrollTop;
+                        
+                        if (linkRect.bottom > tocRect.bottom) {
+                            toc.scrollTop = tocScrollTop + (linkRect.bottom - tocRect.bottom) + 20;
+                        } else if (linkRect.top < tocRect.top + 50) {
+                            toc.scrollTop = tocScrollTop - (tocRect.top + 50 - linkRect.top);
+                        }
+                    }
                 });
             }
-            document.addEventListener('scroll', onScroll, {passive:true});
+            
+            // Throttle scroll events for better performance
+            let ticking = false;
+            function requestTocUpdate() {
+                if (!ticking) {
+                    requestAnimationFrame(onScroll);
+                    ticking = true;
+                    setTimeout(() => { ticking = false; }, 10);
+                }
+            }
+            
+            document.addEventListener('scroll', requestTocUpdate, {passive: true});
             onScroll();
         }
-        // Desktop sidebar
-        buildToc(document.getElementById('projects-toc'), document.querySelector('.mist-content-modern'));
-        // Mobile ToC
-        buildToc(document.getElementById('projects-toc-mobile'), document.querySelector('.mist-content-modern'));
+        // Build TOC for desktop only
+        const mainContent = document.querySelector('.mist-content-modern');
+        const desktopToc = document.getElementById('projects-toc');
+        
+        if (mainContent) {
+            buildToc(desktopToc, mainContent);
+        }
+        
+        // Add resize handler to ensure proper layout
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                // Refresh TOC positioning on resize
+                if (desktopToc && window.innerWidth >= 992) {
+                    const tocTop = desktopToc.getBoundingClientRect().top;
+                    if (tocTop < 90) {
+                        desktopToc.style.top = '90px';
+                    }
+                }
+            }, 250);
+        });
     });
     </script>
 </%block> 

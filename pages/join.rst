@@ -96,4 +96,4 @@ We are looking forward to receiving your application!
 
 .. raw:: html
 
-   <a href="mailto:join@mistlab.ca" class="cta-btn"><i class="fa fa-paper-plane"></i> Send Application</a>
+   <a href="mailto:join@mistlab.ca" class="btn btn-primary-mist""><i class="fa fa-paper-plane"></i> Send Application</a>

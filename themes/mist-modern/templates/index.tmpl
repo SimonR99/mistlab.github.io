@@ -30,14 +30,14 @@
                 %if posts:
                     <div class="blog-posts-grid">
                         %for post in posts:
-                            <div class="modern-card blog-post-card" style="margin-bottom: 2rem;">
+                            <div class="modern-card blog-post-card blog-post-card-spacing">
                                 <div class="blog-card-content">
                                     <h2 class="blog-card-title"><a href="${post.permalink()}">${post.title()}</a></h2>
                                     %if post.description():
                                         <p class="blog-card-description">${post.description()}</p>
                                     %endif
                                     <p class="blog-card-teaser">${post.text(teaser_only=True, show_read_more_link=False)}</p>
-                                    <a href="${post.permalink()}" class="btn btn-primary btn-read-more">Read More</a>
+                                    <a href="${post.permalink()}" class="btn btn-primary-mist btn-read-more">Read More</a>
                                 </div>
                             </div>
                         %endfor

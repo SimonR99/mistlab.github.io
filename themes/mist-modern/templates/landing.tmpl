@@ -11,7 +11,7 @@
     ${html_feedlinks()}
     
     <!-- Load modern styles -->
-    <link href="assets/css/mist-modern.css" rel="stylesheet">
+    <link href="/assets/css/mist-modern.css" rel="stylesheet">
 
     <!-- Preload hero image to prevent flash -->
     <link rel="preload" href="images/milky-cropped.jpg" as="image">
@@ -35,18 +35,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="."><img src="images/mistlogo.svg" alt="MIST Lab" id="logo" height="50"></a>
+          <a href="/"><img src="/images/mistlogo.svg" alt="MIST Lab" id="logo" height="50"></a>
         </div>
         
         <div class="collapse navbar-collapse navbar-ex1-collapse page-scroll">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href=".">Home</a></li>
-            <li><a href="about/">About</a></li>
-            <li><a href="about/#people">People</a></li>
-            <li><a href="blog/">Blog</a></li>
-            <li><a href="projects/">Projects</a></li>
-            <li><a href="publications/">Publications</a></li>
-            <li><a href="join/">Join MIST</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/about/#people">People</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/publications/">Publications</a></li>
+            <li><a href="/join/">Join MIST</a></li>
           </ul>
         </div>
       </div>
@@ -150,7 +150,7 @@
               Our research covers several areas related to space technology, from autonomous systems 
               to novel computer architectures and space exploration technologies.
             </p>
-            <a href="projects/" class="btn-modern btn-modern-primary">Explore Projects</a>
+            <a href="projects/" class="btn btn-primary-mist">Explore Projects</a>
           </div>
 
           <div class="feature-card">
@@ -162,7 +162,7 @@
               Meet the brilliant researchers and students behind the MIST Lab's groundbreaking work 
               in space technology and computer engineering.
             </p>
-            <a href="about/#people" class="btn-modern btn-modern-primary">Meet the Team</a>
+            <a href="about/#people" class="btn btn-primary-mist">Meet the Team</a>
           </div>
 
           <div class="feature-card">
@@ -174,7 +174,7 @@
               Browse our latest research papers and discover the cutting-edge work being done 
               at MIST Lab in space technology and autonomous systems.
             </p>
-            <a href="publications/" class="btn-modern btn-modern-primary">View Publications</a>
+            <a href="publications/" class="btn btn-primary-mist">View Publications</a>
           </div>
         </div>
       </div>
@@ -213,327 +213,11 @@
     </footer>
 
     <!-- Hero Banner Styles -->
-    <style>
-    .mist-hero-banner {
-        position: relative;
-        height: 500px;
-        width: 100%;
-        overflow: hidden;
-        margin-bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hero-image-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 1;
-    }
-
-    .hero-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        filter: brightness(0.6);
-        display: block;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            135deg,
-            rgba(15, 23, 42, 0.85) 0%,
-            rgba(15, 23, 42, 0.7) 30%,
-            rgba(15, 23, 42, 0.6) 70%,
-            rgba(14, 116, 144, 0.4) 100%
-        );
-        z-index: 2;
-    }
-
-    .hero-content-wrapper {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        z-index: 10;
-        width: 100%;
-        max-width: 900px;
-        padding: 0 20px;
-    }
-
-    .hero-content {
-        animation: fadeInUp 0.8s ease-out;
-    }
-
-    .hero-title {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        color: white;
-        line-height: 1.2;
-    }
-
-    .hero-description {
-        font-size: 1.3rem;
-        font-weight: 300;
-        margin-bottom: 2rem;
-        opacity: 0.95;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        line-height: 1.6;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-actions {
-        margin-top: 0.5rem;
-    }
-
-    .hero-actions .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 1rem;
-        font-weight: 500;
-        padding: 12px 24px;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(14, 116, 144, 0.3);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .hero-actions .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(14, 116, 144, 0.4);
-    }
-
-    .hero-actions .btn span {
-        margin-right: 10px;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Research Area Banners */
-    .research-area-banner {
-        position: relative;
-        width: 100%;
-        height: 160px;
-        margin: 0 0 20px 0;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-    }
-
-    .research-area-banner:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .research-banner-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: all 0.3s ease;
-    }
-
-    .research-area-banner:hover .research-banner-image {
-        transform: scale(1.05);
-    }
-
-    .research-banner-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-            135deg,
-            rgba(15, 23, 42, 0.5) 0%,
-            rgba(14, 116, 144, 0.4) 50%,
-            rgba(16, 185, 129, 0.3) 100%
-        );
-        transition: all 0.3s ease;
-        z-index: 5;
-    }
-
-    .research-area-banner:hover .research-banner-overlay {
-        background: linear-gradient(
-            135deg,
-            rgba(15, 23, 42, 0.65) 0%,
-            rgba(14, 116, 144, 0.55) 50%,
-            rgba(16, 185, 129, 0.45) 100%
-        );
-    }
-
-    .research-banner-title {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white !important;
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-align: center;
-        margin: 0;
-        padding: 0 20px;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
-        z-index: 15;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-        background: none;
-        border: none;
-    }
-
-    .research-area-banner:hover .research-banner-title {
-        transform: translate(-50%, -50%) scale(1.05);
-        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
-    }
-
-    .btn-primary-mist {
-        background: linear-gradient(135deg, var(--space-teal), var(--accent-green));
-        border: none;
-        padding: 15px 30px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border-radius: 50px;
-        box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        text-decoration: none;
-        color: white;
-    }
-
-    .btn-primary-mist:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 40px rgba(8, 145, 178, 0.4);
-        background: linear-gradient(135deg, var(--space-teal-light), var(--accent-green-light));
-        color: white;
-        text-decoration: none;
-    }
-
-    .btn-primary-mist span {
-        margin-right: 10px;
-    }
-
-    @media (max-width: 768px) {
-        .mist-hero-banner {
-            height: 400px;
-        }
-        
-        .hero-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn-primary-mist {
-            padding: 12px 25px;
-            font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .mist-hero-banner {
-            height: 350px;
-        }
-        
-        .hero-title {
-            font-size: 2rem;
-        }
-        
-        .hero-description {
-            font-size: 1rem;
-        }
-        
-        .hero-content-wrapper {
-            padding: 0 15px;
-        }
-        
-        .research-area-banner {
-            height: 120px;
-        }
-        
-        .research-banner-title {
-            font-size: 1.2rem;
-            padding: 0 15px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .research-banner-title {
-            font-size: 1.3rem;
-            padding: 0 15px;
-        }
-    }
-    </style>
-
+    <!-- MIST Lab Modern Theme JavaScript -->
+    <script src="/assets/js/mist-modern.js"></script>
+    
     <!-- Enhanced JavaScript -->
     <script>
-      // Enhanced navbar scroll effect
-      window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('main-navbar');
-        if (navbar) {
-          if (window.scrollY > 50) {
-            navbar.classList.add('navbar-scrolled');
-          } else {
-            navbar.classList.remove('navbar-scrolled');
-          }
-        }
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-
-      // Initialize tooltips if jQuery and Bootstrap are available
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof $ !== 'undefined' && $.fn.tooltip) {
-          $('[data-toggle="tooltip"]').tooltip();
-        }
-      });
-
       // Add fade-in animation to cards when they come into view
       if ('IntersectionObserver' in window) {
         const observerOptions = {
