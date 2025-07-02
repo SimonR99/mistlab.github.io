@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
         
-            .title at 0x7f391a8af520&gt; | MIST Lab
+            .title at 0x7fae9cea67a0&gt; | MIST Lab
         
     </title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <!-- Load modern styles --><link href="../../assets/css/mist-modern.css" rel="stylesheet">
+<!-- Preload header background image for instant rendering --><link rel="preload" as="image" href="../../images/milky.jpg">
 <meta name="author" content="MIST Lab">
 <meta property="og:site_name" content="MIST Lab">
 <meta property="og:title" content="index">
@@ -18,7 +19,7 @@
 <meta property="og:description" content="+ Vivek Shankar Varadharajan
 I am a roboticist and a researcher trying to understand, apply and evolve the concepts in robotics. In 2015, I received my M.Sc. degree in Automation and Robotics with a m">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2025-07-01T16:42:41-04:00">
+<meta property="article:published_time" content="2025-07-01T22:40:54-04:00">
 </head>
 <body>
     <!-- Enhanced Navigation -->
@@ -45,11 +46,11 @@ I am a roboticist and a researcher trying to understand, apply and evolve the co
                 </ul>
 </div>
         </div>
-    </nav><!-- Enhanced Page Header --><div class="page-header-modern">
+    </nav><!-- Enhanced Page Header --><div class="mist-header-modern">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-title-modern">index</h1>
+                    <h1 class="mist-title-modern">index</h1>
                 </div>
             </div>
         </div>
@@ -59,7 +60,7 @@ I am a roboticist and a researcher trying to understand, apply and evolve the co
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="content-modern">
+                <div class="mist-content-modern">
                     <h2 id="vivek-shankar-varadharajan">+ Vivek Shankar Varadharajan</h2>
 <p>I am a roboticist and a researcher trying to understand, apply and evolve the concepts in robotics. In 2015, I received my M.Sc. degree in Automation and Robotics with a master thesis on <strong>An Aspiration set approach to an Orientering TSP</strong> under the supervision of Prof. Günter Rudolph from Technical University of Dortmund (Dortmund, Germany), I received my bachlors degree in Electronics and Instrumentation Engineering from Bannari Amman Institute of Technology, Anna University  (Tamil Nadu, India) in 2012. At present, I am a Ph.D. student in computer engineering at the <em>MIST Labs, École Polytechnique de Montréal</em> (Montréal, QC, Canada). My research interests include machine learning, artificial intelligence, distributed robotics and Cyber-Physical systems.</p>
 <p>Apart from my study, I love swimming and I do swimming in my time off.</p>
@@ -191,60 +192,76 @@ International Conference on Autonomous Agents and Multiagent Systems (AAMAS), 20
 
             // Set active navbar item based on current page
             const currentPath = window.location.pathname;
-            const currentHash = window.location.hash;
             const navLinks = document.querySelectorAll('.navbar-nav a');
             
-            navLinks.forEach(link => {
-                const linkUrl = new URL(link.href);
-                const linkPath = linkUrl.pathname;
-                const linkHash = linkUrl.hash;
+            function updateActiveNavigation() {
+                const currentHash = window.location.hash; // Get current hash each time
                 
-                // Remove active class from all items
-                link.parentElement.classList.remove('active');
-                
-                // Handle About page with People section
-                if (currentPath === '/about/') {
-                    if (currentHash === '#people' && linkPath === '/about/' && linkHash === '#people') {
-                        // Highlight People when on #people section
-                        link.parentElement.classList.add('active');
-                    } else if ((!currentHash || currentHash === '') && linkPath === '/about/' && !linkHash) {
-                        // Highlight About when on main about page (no hash)
+                navLinks.forEach(link => {
+                    const linkUrl = new URL(link.href);
+                    const linkPath = linkUrl.pathname;
+                    const linkHash = linkUrl.hash;
+                    
+                    // Remove active class from all items
+                    link.parentElement.classList.remove('active');
+                    
+                    // Handle About page with People section
+                    if (currentPath === '/about/') {
+                        if (linkPath === '/about/' && linkHash === '#people') {
+                            // Check if we're in people section by scroll position or hash
+                            const peopleElement = document.getElementById('people');
+                            if (peopleElement) {
+                                const scrollPosition = window.scrollY + 100; // offset for navbar
+                                const peoplePosition = peopleElement.getBoundingClientRect().top + window.scrollY;
+                                
+                                if (currentHash === '#people' || scrollPosition >= peoplePosition) {
+                                    // Highlight People when at #people section or scrolled past it
+                                    link.parentElement.classList.add('active');
+                                    return;
+                                }
+                            }
+                        } else if (linkPath === '/about/' && !linkHash) {
+                            // Only highlight About if we haven't reached people section yet
+                            const peopleElement = document.getElementById('people');
+                            if (peopleElement) {
+                                const scrollPosition = window.scrollY + 100;
+                                const peoplePosition = peopleElement.getBoundingClientRect().top + window.scrollY;
+                                
+                                if (!currentHash && scrollPosition < peoplePosition) {
+                                    link.parentElement.classList.add('active');
+                                }
+                            } else if (!currentHash) {
+                                // Fallback if people element not found
+                                link.parentElement.classList.add('active');
+                            }
+                        }
+                        return;
+                    }
+                    
+                    // Regular page matching (exact match for home, contains for others)
+                    if (currentPath === linkPath || 
+                        (currentPath.includes(linkPath) && linkPath !== '/') ||
+                        (currentPath === '/' && linkPath === '/')) {
                         link.parentElement.classList.add('active');
                     }
-                    return;
-                }
-                
-                // Regular page matching (exact match for home, contains for others)
-                if (currentPath === linkPath || 
-                    (currentPath.includes(linkPath) && linkPath !== '/') ||
-                    (currentPath === '/' && linkPath === '/')) {
-                    link.parentElement.classList.add('active');
-                }
-            });
+                });
+            }
+            
+            // Initial call
+            updateActiveNavigation();
+            
+            // Update on scroll for about page
+            if (currentPath === '/about/') {
+                window.addEventListener('scroll', function() {
+                    updateActiveNavigation();
+                }, { passive: true });
+            }
             
             // Handle hash changes for single-page navigation
             window.addEventListener('hashchange', function() {
-                const newHash = window.location.hash;
-                const currentPath = window.location.pathname;
-                
-                // Only handle about page hash changes
-                if (currentPath === '/about/') {
-                    navLinks.forEach(link => {
-                        const linkUrl = new URL(link.href);
-                        const linkPath = linkUrl.pathname;
-                        const linkHash = linkUrl.hash;
-                        
-                        link.parentElement.classList.remove('active');
-                        
-                        if (newHash === '#people' && linkPath === '/about/' && linkHash === '#people') {
-                            // Highlight People when switching to #people
-                            link.parentElement.classList.add('active');
-                        } else if ((!newHash || newHash === '') && linkPath === '/about/' && !linkHash) {
-                            // Highlight About when switching back to main about (no hash)
-                            link.parentElement.classList.add('active');
-                        }
-                    });
-                }
+                // Update current hash and re-run navigation logic
+                window.location.hash; // trigger update
+                updateActiveNavigation();
             });
 
             // Smooth scrolling for anchor links
@@ -261,45 +278,9 @@ International Conference on Autonomous Agents and Multiagent Systems (AAMAS), 20
                 });
             });
 
-            // Ensure Bootstrap navbar toggle works
-            if (typeof $ !== 'undefined') {
-                // Initialize tooltips
-                if ($.fn.tooltip) {
-                    $('[data-toggle="tooltip"]').tooltip();
-                }
-                
-                // Manually handle navbar toggle if needed
-                $('.navbar-toggle').on('click', function() {
-                    $('.navbar-collapse').toggleClass('in');
-                });
-                
-                // Close mobile menu when clicking on links
-                $('.navbar-nav a').on('click', function() {
-                    if ($(window).width() < 768) {
-                        $('.navbar-collapse').removeClass('in');
-                    }
-                });
-            } else {
-                // Fallback if jQuery is not loaded
-                const toggle = document.querySelector('.navbar-toggle');
-                const collapse = document.querySelector('.navbar-collapse');
-                
-                if (toggle && collapse) {
-                    toggle.addEventListener('click', function() {
-                        collapse.classList.toggle('in');
-                        collapse.classList.toggle('collapse');
-                    });
-                    
-                    // Close mobile menu when clicking on links
-                    document.querySelectorAll('.navbar-nav a').forEach(link => {
-                        link.addEventListener('click', function() {
-                            if (window.innerWidth < 768) {
-                                collapse.classList.remove('in');
-                                collapse.classList.add('collapse');
-                            }
-                        });
-                    });
-                }
+            // Initialize tooltips only
+            if (typeof $ !== 'undefined' && $.fn.tooltip) {
+                $('[data-toggle="tooltip"]').tooltip();
             }
 
             // Add fade-in animation to cards when they come into view
