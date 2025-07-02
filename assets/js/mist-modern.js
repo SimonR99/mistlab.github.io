@@ -34,9 +34,6 @@
 
     // Initialize performance optimizations
     initPerformanceOptimizations();
-
-    // Initialize publication filters (simplified)
-    setTimeout(initPublicationFilters, 1000); // Delay to ensure page is fully loaded
   }
 
   function initNavbarScrollEffect() {
@@ -261,36 +258,6 @@
     }
   }
 
-  // Simplified Publication Filters
-  function initPublicationFilters() {
-    // Only run on publications page
-    if (!window.location.pathname.includes("/publications/")) return;
-
-    const filterButtons = document.querySelectorAll("[data-filter]");
-    const publications = document.querySelectorAll(".publication");
-
-    if (filterButtons.length === 0 || publications.length === 0) return;
-
-    // Add click handlers to all filter buttons
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        // Remove active class from all buttons
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-
-        // Add active class to clicked button
-        this.classList.add("active");
-
-        // Get filter type
-        const filterType = this.getAttribute("data-filter");
-
-        // Filter publications
-        filterPublications(filterType, publications);
-      });
-    });
-  }
-
   // Utility functions
   function debounce(func, wait, immediate) {
     let timeout;
@@ -321,50 +288,10 @@
     };
   }
 
-  // Global clear all filters function
-  window.clearAllFilters = function () {
-    // Reset all filter states
-    window.activeFilters = { year: "all", topic: null, type: null };
-
-    // Reset all filter buttons
-    document
-      .querySelectorAll(".filter-link, .filter-topic, .filter-type")
-      .forEach((btn) => btn.classList.remove("active"));
-    const allButton = document.querySelector('.filter-link[data-filter="all"]');
-    if (allButton) allButton.classList.add("active");
-
-    // Show all publications
-    const publications = document.querySelectorAll(".publication");
-    publications.forEach((pub, index) => {
-      pub.style.display = "block";
-      pub.style.opacity = "0";
-      pub.style.transform = "translateY(20px)";
-
-      setTimeout(() => {
-        pub.style.transition = "all 0.3s ease";
-        pub.style.opacity = "1";
-        pub.style.transform = "translateY(0)";
-      }, index * 20);
-    });
-
-    // Show all year headings
-    const yearHeadings = document.querySelectorAll(".publications-content h3");
-    yearHeadings.forEach((heading) => {
-      heading.style.display = "block";
-    });
-
-    // Remove no results message
-    const noResultsMsg = document.querySelector(".no-publications-message");
-    if (noResultsMsg) {
-      noResultsMsg.remove();
-    }
-  };
-
   // Export utilities for global use
   window.MISTLab = {
     debounce: debounce,
     throttle: throttle,
-    filterPublications: filterPublications,
     clearAllFilters: window.clearAllFilters,
   };
 })();
