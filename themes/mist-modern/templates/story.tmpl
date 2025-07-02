@@ -44,12 +44,7 @@
                     ${post.text()}
                 </div>
                 
-                %if not post.meta('nocomments') and site_has_comments:
-                    <section class="comments-section">
-                        <h3>Comments</h3>
-                        ${comments.comment_form(post.permalink(absolute=True), post.title(), post.base_path)}
-                    </section>
-                %endif
+          
             </div>
         </div>
     </div>
