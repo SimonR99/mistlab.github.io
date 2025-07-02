@@ -11,8 +11,6 @@
 Start your journey with us!
 ===========================
 
-.. class:: lead
-
 If you have a passion for space applications, and you are a hardware or software wizard (or you are very willing to learn), drop us a line at join@mistlab.ca. We often have positions available for PhD and Master's studies in computer engineering, and we are most likely looking for interns. We always welcome spontaneous applications, whether you want to get a PhD degree or just work on a project.
 
 .. raw:: html
@@ -48,14 +46,14 @@ What do we expect? 🌟
    </div>
 
 Application Process
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 If you have read this far and you think your and our expectations meet, send us an email at join@mistlab.ca with the following:
 
-.. class:: card-section
+
 
 Required Documents
-~~~~~~~~~~~~~~~~~~
+------------------
 
 - A full curriculum vitae
 - Your transcripts
@@ -68,10 +66,9 @@ Required Documents
 - The names and contact information for two references
 - (Optional) Links to any of your projects/activities
 
-.. class:: card-section
 
 Application Tips
-~~~~~~~~~~~~~~~~
+----------------
 
 There is no "right" answer to these questions, use this paper as an opportunity to better present yourself, your interests, and your skills. Since this paper can very well represent your unique situation, please try to avoid vague or canned responses, and show your true value outside of your CV.
 
