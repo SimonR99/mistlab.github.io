@@ -553,9 +553,8 @@ nav .navbar-nav > li.active > a:focus,
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 42, 0.5) 0%,
-    rgba(37, 99, 235, 0.4) 50%,
-    rgba(16, 185, 129, 0.3) 100%
+    rgba(30, 64, 175, 0.1) 0%,
+    rgba(59, 130, 246, 0.1) 100%
   );
   transition: all 0.3s ease;
   z-index: 5;
@@ -564,9 +563,8 @@ nav .navbar-nav > li.active > a:focus,
 .research-area-banner:hover .research-banner-overlay {
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 42, 0.65) 0%,
-    rgba(37, 99, 235, 0.55) 50%,
-    rgba(16, 185, 129, 0.45) 100%
+    rgba(30, 64, 175, 0.2) 0%,
+    rgba(59, 130, 246, 0.2) 100%
   );
 }
 
@@ -797,7 +795,8 @@ nav .navbar-nav > li.active > a:focus,
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/mistlab.github.io/images/optimized_milky.jpg') center/cover;
+  background: url('../../images/optimized_milky.jpg') center/cover;
+  filter: brightness(0.6);
   opacity: 1.0;
   z-index: 1;
 }
@@ -1097,8 +1096,9 @@ nav .navbar-nav > li.active > a:focus,
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('/images/milky-cropped.jpg') center/cover;
+  background: url('../../images/milky-cropped.jpg') center/cover;
   opacity: 0.18;
+  filter: brightness(0.6);
   z-index: 0;
 }
 
@@ -1170,8 +1170,9 @@ nav .navbar-nav > li.active > a:focus,
 }
 
 .cta-card-section {
-  background: url('/images/milky-cropped.jpg') center/cover, linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
+  background: url('../../images/milky-cropped.jpg') center/cover, linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
   color: #fff;
+  filter: brightness(0.6);
   border-radius: 18px;
   box-shadow: 0 10px 32px rgba(30,58,138,0.18);
   padding: 48px 32px 40px 32px;
