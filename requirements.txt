@@ -3,3 +3,5 @@ Nikola[extras]
 Markdown
 scholarly
 requests
+tqdm
+urllib3
